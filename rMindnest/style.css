@@ -1,0 +1,381 @@
+:root {
+    --theme-body: rgb(17, 24, 39);
+    --theme-div: #f8fafc;
+    --theme-font: rgb(17, 24, 39);
+    --theme-bg: #f8fafc;
+    --theme-card: #ffffff;
+    --theme-border: #d1d5db;
+    --theme-accent: #fb923c;
+}
+
+body.light {
+    --theme-body: rgb(17, 24, 39);
+    --theme-div: #f8fafc;
+    --theme-font: rgb(17, 24, 39);
+    --theme-bg: #f8fafc;
+    --theme-card: #ffffff;
+    --theme-border: #d1d5db;
+    --theme-accent: #fb923c;
+}
+
+body.dark {
+    --theme-body: #f8fafc;
+    --theme-div: #111827;
+    --theme-font: #f8fafc;
+    --theme-bg: #0f172a;
+    --theme-card: #1f2937;
+    --theme-border: #334155;
+    --theme-accent: #38bdf8;
+}
+
+body {
+    background: var(--theme-bg);
+    color: var(--theme-body);
+}
+
+:root {
+    --theme-placeholder: rgba(17, 24, 39, 0.65);
+}
+
+body.dark {
+    --theme-placeholder: rgba(248, 250, 252, 0.7);
+}
+
+body .registerform,
+body .loginform {
+    background: var(--theme-card) !important;
+    color: var(--theme-body) !important;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+body .registerform input,
+body .registerform label,
+body .loginform input,
+body .loginform label,
+body .registerform button,
+body .loginform button {
+    transition: all 0.2s ease;
+}
+
+body .nav,
+body .ftrcont,
+body .card,
+body .todos,
+body .taskcontainer,
+body .dplndata,
+body .dayplanner,
+body .quotesdiv,
+body .big-weather,
+body .taskcards,
+body .gcards,
+body .theme-toggle,
+body .qdiv,
+body .gldiv,
+body .tododiv,
+body .dayplndiv,
+body .prmdrdiv,
+body .search,
+body .search input,
+body .taskcont,
+body .taskdets,
+body .cselect {
+    background: var(--theme-div) !important;
+    color: var(--theme-body) !important;
+    border-color: var(--theme-border) !important;
+}
+
+body .stimer {
+    background: transparent !important;
+}
+
+body .stimer > div {
+    background: var(--theme-card) !important;
+}
+
+body .stimer > div h1,
+body .stimer > div #timer {
+    color: var(--theme-body) !important;
+}
+
+body .stimer button {
+    color: white !important;
+}
+
+body .quotesdiv {
+    background: transparent !important;
+}
+
+body .quotesdiv > div {
+    background: var(--theme-card) !important;
+    color: var(--theme-body) !important;
+}
+
+body .quotesdiv .bg-zinc-700,
+body .quotesdiv .bg-zinc-800 {
+    background: var(--theme-card) !important;
+}
+
+body .quotesdiv .text-white {
+    color: var(--theme-body) !important;
+}
+
+body .quotesdiv button {
+    background: #22c55e !important;
+    color: white !important;
+}
+
+
+
+input,
+select,
+textarea {
+    color: var(--theme-font) !important;
+    background: var(--theme-card) !important;
+    border: 1px solid var(--theme-border) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--theme-placeholder) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.weather {
+    background: var(--theme-card) !important;
+    color: var(--theme-body) !important;
+}
+
+.weather h2,
+.weather h3,
+.weather p,
+.weather .city,
+.weather .temp,
+.weather .humidity,
+.weather .windspeed {
+    color: var(--theme-body) !important;
+}
+
+.weather-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+body.dark .weather-icon {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.weather-icon img {
+    filter: none !important;
+}
+
+body .weather,
+body .weather h2,
+body .weather h3,
+body .weather p,
+body .weather .city,
+body .weather .temp,
+body .weather .humidity h3,
+body .weather .windspeed h3,
+body .weather .column,
+body .weather-icon a,
+body .weather-icon img {
+    color: var(--theme-body) !important;
+}
+
+body .weather .weather-icon img {
+    filter: none !important;
+}
+
+body.dark .card,
+body.dark .stimer,
+body.dark .todos,
+body.dark .taskcontainer,
+body.dark .dplndata,
+body.dark .dayplanner,
+body.dark .quotesdiv,
+body.dark .qdiv,
+body.dark .gldiv,
+body.dark .tododiv,
+body.dark .dayplndiv,
+body.dark .prmdrdiv,
+body.dark .theme-toggle,
+body.dark .taskcards,
+body.dark .gcards {
+    background: var(--theme-div) !important;
+    color: var(--theme-body) !important;
+}
+
+body .dashboard {
+    background-color: transparent !important;
+}
+
+.card {
+    background: linear-gradient(45deg,rgb(0, 238, 255),rgb(0, 255, 213),rgb(0, 195, 255));
+}
+
+.card {
+    background: linear-gradient(45deg,rgb(0, 238, 255),rgb(0, 255, 213),rgb(0, 195, 255));
+}
+
+
+/* .dashboard{
+    background-image: url(./assets/sunriseimage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+} */
+
+
+/* .dashboard{
+    background-color: red;
+    height: 100%;
+    width: 100%;
+} */
+
+
+
+.card{
+    position: absolute;
+    left: 35%;
+    top: 20% ;
+    border-radius: 20px;
+    width: 340px;
+    padding: 35px 20px;
+    background: linear-gradient(45deg,rgb(0, 238, 255),rgb(0, 255, 213),rgb(0, 195, 255));
+}
+
+.search{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    width: 250px;
+    padding: 14px;
+    border-radius: 22px;
+    border: none;
+
+}
+
+.search .search-btn{
+    height: 43px;
+    width: 43px;
+    border-radius: 32px;
+    border: none;
+ 
+}
+
+.search img{
+    width: 15px;
+    background-position: center;
+    object-fit: cover;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  
+   
+}
+
+.weather-icon img{
+    width: 150px;    
+}
+
+.temp{
+    font-size: 50px;
+    font: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+.city{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+
+.column{
+    margin-top: 30px;
+    display: flex;
+    gap: 42px;
+    justify-content: center;    
+}
+
+.humidity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--theme-body);
+}
+
+.humidity img{
+  height: 30px;
+}
+
+
+.windspeed{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--theme-body);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+}
+
+.windspeed img{
+    height: 30px;
+}
+
+body.light .humidity img,
+body.light .windspeed img {
+    filter: invert(1) brightness(0.75) !important;
+}
+
+body.dark .humidity img,
+body.dark .windspeed img {
+    filter: none !important;
+}
+
+
+.error{
+    display: none;
+    margin-top: 8px;
+    color: red;
+    text-shadow: inset 0px 1px 13px white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.big-weather{
+    display: none;
+}

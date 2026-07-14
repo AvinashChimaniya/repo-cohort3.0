@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindnest</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <main class="relative w-full h-screen bg-cover">
+      <div
+        class="register h-screen flex justify-center items-center w-full bg-gray-100"
+      >
+        <form
+          class="registerform flex flex-col gap-3 border-2 rounded-xl border-gray-400 px-20 py-10 w-[35%]"
+        >
+          <p class="text-xl mb-5 self-center">Create Your Account</p>
+          <label for="name">Name</label>
+          <input
+            id="name"
+            class="border-2 p-2 border-gray-300"
+            type="text"
+            required
+            placeholder="Enter your name"
+          />
+          <label for="password">Password</label>
+          <input
+            id="password"
+            class="border-2 p-2 border-gray-300"
+            type="password"
+            required
+            placeholder="Create a password"
+          />
+          <button type="submit" class="frsbmit mt-3 p-2 bg-blue-500 text-white rounded-xl">
+            register
+          </button>
+          <p>
+            already have an account !!
+            <span class="lhere cursor-pointer text-green-500">login here</span>
+          </p>
+        </form>
+      </div>
+
+      <div
+        class="login hidden h-screen flex justify-center items-center w-full bg-gray-100"
+      >
+        <form
+          class="loginform flex flex-col gap-3 border-2 rounded-xl border-gray-400 px-20 py-10 w-[35%]"
+        >
+          <p class="text-xl mb-5 self-center">Login to Your Existing Account</p>
+          <label for="username">Name</label>
+          <input
+            id="username"
+            class="border-2 p-2 border-gray-300"
+            type="text"
+            required
+            placeholder="Enter your name"
+          />
+          <label for="password-login">Password</label>
+          <input
+            id="password-login"
+            class="border-2 p-2 border-gray-300"
+            type="password"
+            required
+            placeholder="Enter your password"
+          />
+          <button type="submit" class="frsbmit mt-3 p-2 bg-green-500 text-white rounded-xl">
+            Login
+          </button>
+          <p>
+            Do not have an account !!
+            <span class="rhere cursor-pointer text-violet-500">register here</span>
+          </p>
+        </form>
+      </div>
+
+      <div
+        class="nav hidden border border-2 border-gray-100 w-full bg-[var(--theme-font)] z-12 flex items-center justify-between p-4 px-5"
+        style="background: var(--theme-div); color: var(--theme-body);"
+      >
+        <div class="logo flex items-center justify-center">
+          <div class="logotext text-[var(--theme-body)] text-lg">Mindnest</div>
+          <div class="logo flex items-center justify-center h-12 w-12 bg-cover">
+            <img src="./assets/logo" alt="" srcset="" />
+          </div>
+        </div>
+        <h4>!! your productivity dashboard</h4>
+        <button class="close curson-pointer hidden p-2 text-white bg-red-300 rounded-l ">close</button>
+        <button class="Logoutt curson-pointer  p-2 text-white bg-red-700 rounded-l ">Logout</button>
+      </div>
+
+      <!-- dashboard container bg-[url('./assets/sunriseday.png')] -->
+      <div
+        class="dashboard hidden z-10 relative w-full h-screen bg-cover bg-[url('./assets/sunriseday.png')]"
+      >
+        <!-- dashbord video -->
+        <video
+          class="dvideo hidden absolute object-cover inset-0 top-0 left-0 h-screen w-full z-0"
+          src="./assets/moringsun.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+
+          <video
+          class="nvideo hidden absolute object-cover inset-0 top-0 left-0 h-screen w-full z-0"
+          src="./assets/moonnight.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+
+        <div
+          class="wnt z-12 absolute flex flex-col gap-3 opacity-75 top-20 left-20 rounded-xl flex self-center w-[40%]]"
+        >
+          <div class="card">
+            <div class="search">
+              <input type="text" placeholder="enter your city and press search" />
+              <button class="search-btn"><img src="images/search.png" alt="" /></button>
+            </div>
+            <div class="error">
+              <p>please enter the correct city name</p>
+            </div>
+            <div class="big-weather">
+              <div class="weather">
+                <a href="/" class="weather-icon"
+                  ><img src="images/rain.png" alt="" srcset=""
+                /></a>
+                <h2 class="temp">21°C</h2>
+                <h3 class="city">London</h3>
+                <div class="column">
+                  <div class="humidity">
+                    <img src="images/humidity.png" alt="" />
+                    <div>
+                      <h3>50 %</h3>
+                      <p>Humidity</p>
+                    </div>
+                  </div>
+                  <div class="windspeed">
+                    <img src="images/wind.png" alt="" srcset="" />
+                    <div>
+                      <h3>23 Km/h</h3>
+                      <p>Wind Speed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timediv absolute right-80 top-80">
+          <div
+            id="dateCard"
+            class="w-[350px] rounded-2xl p-6 text-white shadow-2xl transition-all duration-700"
+          >
+            <h2 id="dayName" class="text-3xl font-bold tracking-wide">
+              Monday
+            </h2>
+
+            <p id="fullDate" class="text-lg text-white mt-2 opacity-90">10 July 2026</p>
+
+            <h1 id="currentTime" class="text-6xl font-bold mt-6">10:30:45</h1>
+
+            <p id="ampm" class="text-2xl font-semibold mt-2">AM</p>
+          </div>
+        </div>
+
+        <!-- options div -->
+
+        <div
+          class="ftrcont z-12 cursor-pointer absolute flex flex-col gap-2 opacity-75 bottom-30 p-4 right-0 w-40 bg-[var(--theme-font)]"
+          style="background: var(--theme-div); color: var(--theme-body);"
+        >
+          <h4>features</h4>
+          <div class="qdiv h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <h4>Daily Quote</h4>
+          </div>
+          <div class="gldiv h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <h4>Daily goals</h4>
+          </div>
+          <div class="tododiv h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <h4>To-do's</h4>
+          </div>
+          <div class="dayplndiv h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <h4>Day-planner</h4>
+          </div>
+          <div class="prmdrdiv h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <h4>Promodoro timer</h4>
+          </div>
+          <div class="theme-toggle h-18 w-32 rounded-xl p-3 bg-yellow-200">
+            <button id="themeToggleBtn" class="w-full h-full rounded-xl bg-indigo-500 text-white">Theme</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="todos hidden bg-white h-screen w-full">
+        <!-- <div class="heading bg-black p-5 text-white">Welcome to your to do list </div> -->
+        
+        <div class="taskcontainer flex w-full h-screen">
+          <div
+            class="addtasks w-[20%] flex flex-col pt-4 items-center border-r-1 border-gray-100"
+          >
+            <h2 class="text-xl">Add your Task</h2>
+            <form
+              class="taskcont mt-10 w-[90%] h-[50%] border-1 flex flex-col items-center rounded-xl border-gray-100"
+            >
+              <div
+                class="taskinputs p-4 flex flex-col justify-center align-center"
+              >
+                <label for="taskdets">Enter your task below</label>
+                <input
+                  class="taskdets rounded-l mt-3 border-2 p-1 gap-2 text-black border-gray-400"
+                  placeholder="enter task here"
+                  type="text"
+                />
+                <label for="category" class="mt-6"> Select Category </label>
+                <select
+                  name="category"
+                  class="cselect border-2 border-gray-200"
+                >
+                  <option value="" hidden selected disabled>Category</option>
+                  <option value="Argent">Argent</option>
+                  <option value="Delay">Delay</option>
+                </select>
+              </div>
+              <button
+                class="tsbtn p-1 mt-5 rounded-l bg-blue-600 text-white w-[70%]"
+              >
+                Add Task
+              </button>
+            </form>
+          </div>
+          <div class="showtasks w-[70%] py-5 h-screen">
+            <div class="text-xl">Task List</div>
+            <div
+              class="taskcards mt-4 overflow-y-scroll h-[80%] scrollbar-none px-5 py-10 flex flex-col gap-8 items-start"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="stimer hidden w-full h-screen bg-zinc-900 flex justify-center items-center"
+      >
+        <div class="w-[400px] bg-zinc-800 rounded-3xl shadow-2xl p-8">
+          <h1 class="text-3xl font-bold text-center text-green-400 mb-8">
+            Study Timer
+          </h1>
+
+          <div
+            id="timer"
+            class="text-6xl font-bold text-center text-white tracking-widest mb-8"
+          >
+            00:00:00
+          </div>
+
+          <div class="flex justify-center gap-4">
+            <button
+              id="startBtn"
+              class="px-5 py-2 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold transition"
+            >
+              Start
+            </button>
+
+            <button
+              id="pauseBtn"
+              class="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-white font-semibold transition"
+            >
+              Pause
+            </button>
+
+            <button
+              id="resetBtn"
+              class="px-5 py-2 bg-red-500 hover:bg-red-600 rounded-lg text-white font-semibold transition"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="quotesdiv cursor-pointer hidden w-full h-screen bg-zinc-900 flex justify-center items-center"
+      >
+        <div class="w-[500px] bg-zinc-800 rounded-3xl p-8 shadow-2xl">
+          <h2 class="text-3xl font-bold text-green-400 text-center mb-6">
+            🌿 Daily Quote
+          </h2>
+
+          <div class="bg-zinc-700 rounded-xl p-6">
+            <p
+              id="quote"
+              class="text-white text-xl italic leading-9 text-center"
+            >
+              Loading today's quote...
+            </p>
+
+            <p
+              id="author"
+              class="text-green-400 text-right mt-6 text-lg font-semibold"
+            >
+              —
+            </p>
+          </div>
+
+          <button
+            id="newQuoteBtn"
+            class="w-full mt-8 py-3 bg-green-500 hover:bg-green-600 rounded-xl text-white font-semibold transition"
+          >
+            New Quote
+          </button>
+        </div>
+      </div>
+
+      <div class="dayplanner hidden bg-white w-full">
+        <div class="dnav p-4 bg-gray-400">enter you hourly plans here</div>
+        <div class="dplndata flex flex-col gap-4 mt-4 p-4 overflow-y-scroll scrollbar-none h-[90%]">
+          <!-- <div class="timel w-[50%] bg-green-300">
+            <h2>1ST HALF</h2>
+            <div
+              class="timelcards overflow-y-scroll scrollbar-none p-2 flex flex-col gap-4"
+            >
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>6-8 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>8-10 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>10-12 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>12- 02 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>02 - 04 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>04 - 06 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+            </div>
+          </div>
+          <div class="timer w-[50%] bg-pink-400">
+            <h2>2ND HALF</h2>
+            <div
+              class="timelcards overflow-y-scroll scrollbar-none p-2 flex flex-col gap-4"
+            >
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>6-8 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>8-10 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>10-12 AM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>12- 02 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>02 - 04 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+              <div class="card68 p-2 w-full bg-orange-200 text-black rounded">
+                <h2>04 - 06 PM</h2>
+                <h4>.... i have to do this</h4>
+                <button class="px-3 mt-3 py-1 bg-yellow-300">edit</button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="dailygoals hidden h-screen w-full flex  bg-white">
+        <form class="setgaols w-[20%] p-4">
+          <h1>Add your goals now</h1>
+          <div class="inpts p-2 w-full mt-17">
+            <input
+              class="gdata p-2 border-2 border-gray-200"
+              type="text"
+              required
+              placeholder="enter your goal here"
+            />
+            <button class="addgl p-2 bg-red-400 text-white mt-4 rounded-l w-[80%]">Add Goal</button>
+          </div>
+        </form>
+        <div class="seegoals w-[80%] p-2">
+          <h2>My Goals</h2>
+          <div
+            class="goalcards overflow-y-scroll scrollbar-none gap-4 mt-10 w-full flex flex-col items-start "
+          >
+            <!-- <div class="gcards w-full rounded-l p-4 bg-blue-300 ">
+              <h1>my goal</h1>
+              <div class="btns flex mt-4 items-end gap-5">
+                <button class="edit  px-4 py-2 bg-yellow-400 text-sm">edit</button>
+                <button class="dlete px-4 py-2 bg-red-500 text-sm">delete</button>
+              </div>
+            </div> -->
+
+             <!-- <div class="gcards w-full bg-blue-300 p-4 rounded">
+              <h1>my goal</h1>
+              <div class="btns flex mt-4 items-end gap-5">
+                <button class="edit  px-4 py-2 bg-yellow-400 text-sm">edit</button>
+                <button class="dlete px-4 py-2 bg-red-500 text-sm">delete</button>
+              </div>
+            </div> -->
+
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
