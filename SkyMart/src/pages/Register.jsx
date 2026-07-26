@@ -34,10 +34,12 @@ const Register = () => {
       return
     }
 
-    register({
-      name,
-      email,
-    })
+    const result = register({ name, email, password })
+
+    if (!result.success) {
+      setError(result.message)
+      return
+    }
 
     toast.success('Account created! Welcome to SkyMart.')
     navigate('/shop')

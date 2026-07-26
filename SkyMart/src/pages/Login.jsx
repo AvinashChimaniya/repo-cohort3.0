@@ -21,10 +21,12 @@ const Login = () => {
       return
     }
 
-    login({
-      email,
-      name: email.split('@')[0],
-    })
+    const result = login({ email, password })
+
+    if (!result.success) {
+      setError(result.message)
+      return
+    }
 
     toast.success('Welcome back! You are now logged in.')
     navigate('/shop')

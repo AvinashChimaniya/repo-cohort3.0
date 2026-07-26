@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import AboutHero from "../components/about/AboutHero";
-import Stats from "../components/about/Stats";
-import Story from "../components/about/Story";
-import Highlights from "../components/about/Highlights";
-import TechStack from "../components/about/TechStack";
-import CTA from "../components/about/CTA";
+import AboutHero from "../components/About/AboutHero";
+import Stats from "../components/About/Stats";
+import Story from "../components/About/Story";
+import Highlights from "../components/About/Highlights";
+import TechStack from "../components/About/TechStack";
+import CTA from "../components/About/CTA";
 
 const About = () => {
   return (

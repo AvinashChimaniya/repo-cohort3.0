@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { authenticateUser, registerUser } from './authUtils.js'
 
 const AuthContext = createContext(null)
 
@@ -23,14 +24,28 @@ export function AuthProvider({ children }) {
     localStorage.setItem('skymart_isAuthenticated', isAuthenticated ? 'true' : 'false')
   }, [isAuthenticated])
 
-  const login = (userData) => {
-    setUser(userData)
+  const login = ({ email, password }) => {
+    const result = authenticateUser({ email, password })
+
+    if (!result.success) {
+      return result
+    }
+
+    setUser(result.user)
     setIsAuthenticated(true)
+    return result
   }
 
-  const register = (userData) => {
-    setUser(userData)
+  const register = ({ name, email, password }) => {
+    const result = registerUser({ name, email, password })
+
+    if (!result.success) {
+      return result
+    }
+
+    setUser(result.user)
     setIsAuthenticated(true)
+    return result
   }
 
   const logout = () => {
