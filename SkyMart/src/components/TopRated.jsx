@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { Star, ArrowRight, ShoppingBag } from "lucide-react";
 import { useShop } from '../context/useShop.jsx'
+import { Link } from 'react-router-dom';
 
 const TopRated = () => {
   const { products, loading } = useShop()
@@ -49,10 +50,7 @@ const TopRated = () => {
           </h2>
         </div>
 
-        <button className="flex items-center gap-2 text-lime-500 font-medium hover:gap-3 transition-all">
-          See all
-          <ArrowRight size={18} />
-        </button>
+
       </div>
 
       {/* Products */}
@@ -67,7 +65,8 @@ const TopRated = () => {
           </div>
         ) : (
           topProducts.map((item) => (
-            <div
+            <Link
+              to={`/product/${item.id}`}
               key={item.id}
               className="h-24 rounded-2xl border border-zinc-200 bg-white px-6 flex items-center justify-between hover:shadow-md transition"
             >
@@ -95,7 +94,7 @@ const TopRated = () => {
                   className="text-lime-600"
                 />
               </button>
-            </div>
+            </Link>
           ))
         )}
       </div>
