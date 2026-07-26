@@ -42,7 +42,7 @@ const Register = () => {
     }
 
     toast.success('Account created! Welcome to SkyMart.')
-    navigate('/shop')
+    navigate('/')
   }
 
   return (

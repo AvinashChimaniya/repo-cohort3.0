@@ -29,7 +29,7 @@ const Login = () => {
     }
 
     toast.success('Welcome back! You are now logged in.')
-    navigate('/shop')
+    navigate('/')
   }
 
   return (
