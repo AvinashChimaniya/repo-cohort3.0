@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
+  transform: scale(0.98);
+}
