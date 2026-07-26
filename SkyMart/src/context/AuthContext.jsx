@@ -5,14 +5,18 @@ const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
+    if (typeof window === 'undefined') return null
     const stored = localStorage.getItem('skymart_user')
     return stored && stored !== 'undefined' ? JSON.parse(stored) : null
   })
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    if (typeof window === 'undefined') return false
     return localStorage.getItem('skymart_isAuthenticated') === 'true'
   })
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     if (user) {
       localStorage.setItem('skymart_user', JSON.stringify(user))
     } else {
@@ -21,6 +25,7 @@ export function AuthProvider({ children }) {
   }, [user])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     localStorage.setItem('skymart_isAuthenticated', isAuthenticated ? 'true' : 'false')
   }, [isAuthenticated])
 

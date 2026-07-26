@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, ShoppingCart, Star } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ShoppingCart, Star, Package } from 'lucide-react'
 import { useShop } from '../context/useShop.jsx'
 
 const Product = () => {
@@ -89,6 +89,13 @@ const Product = () => {
 
         <div className="grid gap-8 lg:grid-cols-[420px_1fr]">
           <div className="rounded-[28px] border border-zinc-700 bg-[#111111] p-6 text-center">
+            <div className="mb-4 flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-400">
+              <span className="inline-flex items-center gap-2">
+                <Package size={16} className="text-lime-400" />
+                Premium product
+              </span>
+              <span className="text-zinc-500">#{product.id}</span>
+            </div>
             <img
               src={product.image}
               alt={product.title}
@@ -109,16 +116,28 @@ const Product = () => {
               </div>
               <p className="mt-6 text-lg leading-8 text-zinc-300">{product.description}</p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <span className="text-4xl font-bold text-lime-400">${product.price}</span>
-                <button
-                  type="button"
-                  onClick={handleAddToCart}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-lime-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-lime-300"
-                >
-                  <ShoppingCart size={18} />
-                  Add to cart
-                </button>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm text-zinc-500">Price</p>
+                  <span className="text-4xl font-bold text-lime-400">${product.price}</span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/shop')}
+                    className="inline-flex items-center gap-2 rounded-2xl border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition hover:border-lime-400"
+                  >
+                    Continue shopping
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleAddToCart}
+                    className="inline-flex items-center gap-2 rounded-2xl bg-lime-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-lime-300"
+                  >
+                    <ShoppingCart size={18} />
+                    Add to cart
+                  </button>
+                </div>
               </div>
 
               {notification ? (
@@ -155,7 +174,9 @@ const Product = () => {
                     </button>
                   ))
                 ) : (
-                  <p className="text-zinc-500">No related products found.</p>
+                  <div className="rounded-3xl border border-dashed border-zinc-700 bg-zinc-950/60 p-6 text-sm text-zinc-500 sm:col-span-2">
+                    No related products found for this category yet.
+                  </div>
                 )}
               </div>
             </div>

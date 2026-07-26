@@ -18,30 +18,10 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            isAuthenticated ? <Home /> : <Navigate to="/register" replace />
-          }
-        />
-        <Route
-          path="/shop"
-          element={
-            isAuthenticated ? <Shop /> : <Navigate to="/register" replace />
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            isAuthenticated ? <About /> : <Navigate to="/register" replace />
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            isAuthenticated ? <Cart /> : <Navigate to="/register" replace />
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
         <Route
           path="/login"
           element={
@@ -54,12 +34,7 @@ const App = () => {
             isAuthenticated ? <Navigate to="/" replace /> : <Register />
           }
         />
-        <Route
-          path="/product/:id"
-          element={
-            isAuthenticated ? <Product /> : <Navigate to="/register" replace />
-          }
-        />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />

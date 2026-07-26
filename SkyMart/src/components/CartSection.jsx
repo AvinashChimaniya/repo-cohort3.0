@@ -2,10 +2,12 @@ import { useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Trash2, ShoppingCart } from 'lucide-react'
 import { toast } from 'react-toastify'
+import { useAuth } from '../context/AuthContext.jsx'
 import { useShop } from '../context/useShop.jsx'
 
 const CartSection = () => {
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
   const { cart, addToCart, removeFromCart, clearCart } = useShop()
 
   const items = useMemo(() => {
@@ -28,6 +30,13 @@ const CartSection = () => {
 
   const handleCheckout = () => {
     if (cart.length === 0) return
+
+    if (!isAuthenticated) {
+      toast.info('Please log in to complete checkout.')
+      navigate('/login')
+      return
+    }
+
     clearCart()
     toast.success('Order placed successfully!')
   }

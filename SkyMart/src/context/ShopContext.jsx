@@ -1,22 +1,46 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useAuth } from './AuthContext.jsx'
 import { ShopContext } from './shopContextValue.js'
 
-export function ShopProvider({ children }) {
-  const [products, setProducts] = useState([])
-  const [cart, setCart] = useState(() => {
-    if (typeof window === 'undefined') return []
+function getGuestCartKey() {
+  if (typeof window === 'undefined') return 'guest-cart'
 
-    try {
-      const storedCart = window.localStorage.getItem('skyMartCart')
-      return storedCart ? JSON.parse(storedCart) : []
-    } catch {
-      return []
-    }
-  })
+  const storedKey = window.localStorage.getItem('skymart_guest_cart_key')
+  if (storedKey) return storedKey
+
+  const generatedKey = `guest-${crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`}`
+  window.localStorage.setItem('skymart_guest_cart_key', generatedKey)
+  return generatedKey
+}
+
+function getCartStorageKey(user, isAuthenticated) {
+  if (user?.id && isAuthenticated) {
+    return `skymart_cart_user_${user.id}`
+  }
+
+  return `skymart_cart_${getGuestCartKey()}`
+}
+
+function readCartFromStorage(storageKey) {
+  if (typeof window === 'undefined') return []
+
+  try {
+    const storedCart = window.localStorage.getItem(storageKey)
+    return storedCart ? JSON.parse(storedCart) : []
+  } catch {
+    return []
+  }
+}
+
+export function ShopProvider({ children }) {
+  const { user, isAuthenticated } = useAuth()
+  const [products, setProducts] = useState([])
+  const [cart, setCart] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const storageKeyRef = useRef(null)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -38,6 +62,12 @@ export function ShopProvider({ children }) {
     return () => controller.abort()
   }, [])
 
+  useEffect(() => {
+    const nextStorageKey = getCartStorageKey(user, isAuthenticated)
+    storageKeyRef.current = nextStorageKey
+    setCart(readCartFromStorage(nextStorageKey))
+  }, [isAuthenticated, user?.id])
+
   const addToCart = (product) => {
     setCart((current) => [...current, product])
     toast.success('Product added to cart!')
@@ -53,7 +83,11 @@ export function ShopProvider({ children }) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    window.localStorage.setItem('skyMartCart', JSON.stringify(cart))
+
+    const activeStorageKey = storageKeyRef.current
+    if (!activeStorageKey) return
+
+    window.localStorage.setItem(activeStorageKey, JSON.stringify(cart))
   }, [cart])
 
   const addProduct = (product) => {
